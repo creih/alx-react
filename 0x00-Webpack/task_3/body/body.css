@@ -1,0 +1,11 @@
+/* modules/body/body.css */
+#count {
+    font-weight: bold;
+    position: relative;
+    left: 10px;
+  }
+  
+  button {
+    display: block;
+    margin: 20px auto;
+  }
