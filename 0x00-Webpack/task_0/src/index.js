@@ -1,7 +1,6 @@
-import $ from "jquery";
+import $ from 'jquery';
 
-Holberton Dashboard
+$('body').append('<p>Holberton Dashboard</p>');
+$('body').append('<p>Dashboard data for the students</p>');
+$('body').append('<p>Copyright - Holberton School</p>');
 
-Dashboard data for the students
-
-Copyright - Holberton School
