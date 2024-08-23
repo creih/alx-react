@@ -1,4 +1,3 @@
-// App.js
 import React from 'react';
 import logo from './holberton-logo.jpg';
 import { getFullYear, getFooterCopy } from './utils';
@@ -10,9 +9,9 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>School dashboard</h1>
       </header>
-      <body className="App-body">
+      <div className="App-body">
         <p>Login to access the full dashboard</p>
-      </body>
+      </div>
       <footer className="App-footer">
         <p>Copyright {getFullYear()} - {getFooterCopy(true)}</p>
       </footer>
