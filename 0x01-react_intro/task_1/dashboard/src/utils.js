@@ -11,3 +11,8 @@ export function getFooterCopy(isIndex) {
     }
     return "Holberton School main dashboard";
 }
+// function to get the latest notification
+export function getLatestNotification() {
+    return "<strong>Urgent requirement</strong> - complete by EOD";
+  }
+  
