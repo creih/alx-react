@@ -95,4 +95,4 @@ describe('notificationReducer', () => {
     state = notificationReducer(state, setFilterAction);
     expect(state).toEqual(expectedState);
   });
-});
+}); 
