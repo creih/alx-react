@@ -7,16 +7,33 @@
     Connect to the component the actions creators displayNotificationDrawer and hideNotificationDrawer
     You should use the simplified version for the mapDispatchToProps. No need to import bindActionCreators
     Modify the render function of the component to use the functions passed within the props instead of the action within the Class component
+    
+    task 8:
+    Connect the action creator loginRequest and map it to the login prop
+    Modify the component to use the new login function from the props instead of the one within the class
+    Refactor the component to remove any login or logout function and bind
 
 */
 import React from 'react';
 import { connect } from 'react-redux';
 import { displayNotificationDrawer, hideNotificationDrawer } from '../actions/uiActions';
-function App({ isLoggedIn, displayDrawer, displayNotificationDrawer, hideNotificationDrawer }) {
+import PropTypes from 'prop-types';
+import { loginRequest, logout } from '../actions/authActions';
+
+function App({ isLoggedIn, displayDrawer, login, logout, displayNotificationDrawer, hideNotificationDrawer }) {
+    const handleLogin = (credentials) => {
+        login(credentials);
+    };
     return (
         <div>
             <h1>Dashboard</h1>
             <p>{isLoggedIn ? 'You are logged in' : 'You are not logged in'}</p>
+
+            {isLoggedIn ? (
+                <button onClick={logout}>Logout</button> // Use logout prop
+            ) : (
+                <button onClick={() => handleLogin({ username: 'user', password: 'pass' })}>Login</button> // Use handleLogin
+            )}
 
             {displayDrawer ? (
                 <div className="notification-drawer">
@@ -33,6 +50,8 @@ function App({ isLoggedIn, displayDrawer, displayNotificationDrawer, hideNotific
 App.propTypes = {
     isLoggedIn: PropTypes.bool,
     displayDrawer: PropTypes.bool,
+    login: PropTypes.func.isRequired,
+    logout: PropTypes.func.isRequired,
     displayNotificationDrawer: PropTypes.func.isRequired,
     hideNotificationDrawer: PropTypes.func.isRequired
 };
@@ -50,6 +69,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
+    login: loginRequest,
+    logout,
     displayNotificationDrawer,
     hideNotificationDrawer
 };
